@@ -112,20 +112,20 @@ Desgin К [Xiaok] (http://github.luxiaok.com)
 
 * Войти Страница
 
-! [DnsMasqWeb Войти] (https://github.com/luxiaok/DNSmasqWeb/raw/master/xk_screenshot/xk_login.png)
+! [DnsMasqWeb Войти] (https://github.com/KravtsovVG/DNSmasqWeb/raw/master/xk_screenshot/xk_login.png)
 
 * Центр управления
 
-! [DnsMasqWeb Dashboard] (https://github.com/luxiaok/DNSmasqWeb/raw/master/xk_screenshot/xk_dashboard.png)
+! [DnsMasqWeb Dashboard] (https://github.com/KravtsovVG/DNSmasqWeb/raw/master/xk_screenshot/xk_dashboard.png)
 
 * Управление доменами
 
-! [DnsMasqWeb домена] (https://github.com/luxiaok/DNSmasqWeb/raw/master/xk_screenshot/xk_domain.png)
+! [DnsMasqWeb домена] (https://github.com/KravtsovVG/DNSmasqWeb/raw/master/xk_screenshot/xk_domain.png)
 
 * Управление записями DNS
 
-! [DnsMasqWeb Record] (https://github.com/luxiaok/DNSmasqWeb/raw/master/xk_screenshot/xk_record.png)
+! [DnsMasqWeb Record] (https://github.com/KravtsovVG/DNSmasqWeb/raw/master/xk_screenshot/xk_record.png)
 
 * Управление DHCP
 
-! [DnsMasqWeb DHCP] (https://github.com/luxiaok/DNSmasqWeb/raw/master/xk_screenshot/xk_dhcp.png)
+! [DnsMasqWeb DHCP] (https://github.com/KravtsovVG/DNSmasqWeb/raw/master/xk_screenshot/xk_dhcp.png)
