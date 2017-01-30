@@ -39,72 +39,72 @@ Desgin К [Xiaok] (http://github.luxiaok.com)
 ## Три, инструкции по конфигурации Dnsmasq ##
 * Общая установка (версия: 2.48)
 
-`Yum -y установить dnsmasq`
+`yum -y install dnsmasq`
 
-`Chkconfig Dnsmasq on`
+`chkconfig dnsmasq on`
 
 * Измените установку (Версия: 2.72)
 
-`Wget HTTP: // www.thekelleys.org.uk / Dnsmasq / Dnsmasq-2.72.tar.gz`
+`wget http://www.thekelleys.org.uk/dnsmasq/dnsmasq-2.72.tar.gz`
 
-`Деготь ZXF Dnsmasq-2.72.tar.gz`
+`tar zxf dnsmasq-2.72.tar.gz`
 
-`Cd Dnsmasq-2.72`
+`cd dnsmasq-2.72`
 
-`Вим Makefile`
+`vim Makefile`
 
-`PREFIX = / USR / местные / dnsmasq`
+`PREFIX = /usr/local/dnsmasq`
 
-`Make && сделать install`
+`make && make install`
 
-`Cp dnsmasq.conf.example / и т.д. / dnsmasq.conf`
+`cp dnsmasq.conf.example /etc/dnsmasq.conf`
 
-`Ln -s / USR / местные / Dnsmasq / SBIN / Dnsmasq / USR / SBIN /`
+`ln -s /usr/local/dnsmasq/sbin/dnsmasq /usr/sbin/`
 
-`Dnsmasq --version`
+`dnsmasq --version`
 
-* Основной файл особенность: /etc/dnsmasq.conf
+* Основной файл настроек: /etc/dnsmasq.conf
 
-`Резолв-файл = / и т.д. / dnsmasq.resolv.conf`
+`resolv-file=/etc/dnsmasq.resolv.conf`
 
-`ADDN-хостов = / и т.д. / dnsmasq.hosts`
+`addn-hosts=/etc/dnsmasq.hosts`
 
-`Conf-реж = / и т.д. / dnsmasq.d`
+`conf-dir=/etc/dnsmasq.d`
 
 ## Четыре, веб-конфигурации ##
 * Установить Торнадо
 
-`Easy_install tornado`
+`easy_install tornado`
 
 * Установить Jinja2
 
-`Easy_install tornado`
+`easy_install tornado`
 
 * Установка драйверов баз данных
 
-`Yum -y установить MySQL-python`
+`yum -y install MySQL-python`
 
-`Easy_install torndb`
+`easy_install torndb`
 
 * Импорт файла базы данных
 
-`Mysql> создать xk_dnsmasq базы данных;`
+`Mysql> create database xk_dnsmasq;`
 
-`Mysql> использовать xk_dnsmasq;`
+`Mysql> use xk_dnsmasq;`
 
-`Mysql> источник xk_db_sql / xk_dnsmasq.sql;`
+`Mysql> source xk_db_sql/xk_dnsmasq.sql;`
 
 * Настройка веб
 
-`Cp xk_config / xk_setting.sample.py xk_config / xk_setting.py`
+`cp xk_config/xk_setting.sample.py xk_config/xk_setting.py`
 
-xk_config File / xk_setting.py установить MySQL хост, порт, имя пользователя, пароль
+В файле xk_config/xk_setting.py установить MySQL хост, порт, имя пользователя, пароль
 
 * Запуск веб-терминала
 
-`Python run.py`
+`python run.py`
 
-Имя пользователя по умолчанию / пароль: администратор / администратор
+Имя пользователя по умолчанию/пароль: admin/admin
 
 По умолчанию порт: 9886
 
