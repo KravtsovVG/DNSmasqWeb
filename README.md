@@ -1,129 +1,129 @@
 DNSmasqWeb
 ==========
 
-基于DNSmasq的开源轻量级DNS解析、DHCP地址分配的开源系统
+На основе Dnsmasq разрешение легкий с открытым исходным кодом DNS, DHCP назначение адресов системы с открытым исходным кодом
 
-Desgin By [Xiaok](http://github.luxiaok.com)
-
-
-## 【运维技术圈】微信公众号 ##
-
-![运维技术圈](https://github.com/luxiaok/SaltAdmin/raw/master/screenshot/ops_circle_qrcode.jpg)
-
->也可以微信搜索 **运维技术圈**
+Desgin К [Xiaok] (http://github.luxiaok.com)
 
 
-## 技术交流QQ群 ##
+[##] Инструкция по эксплуатации и технологии обслуживания кругов общественности микро-канал номер ##
 
-**459457262**
+! [Инструкция по эксплуатации и технологии обслуживания кругов] (https://github.com/luxiaok/SaltAdmin/raw/master/screenshot/ops_circle_qrcode.jpg)
 
->加群时请注明来自 **Github**
+> Вы можете также искать для микроканальных эксплуатации и технического обслуживания технологических кругов ** **
 
 
-## 一、应用说明 ##
-* 本系统可同时提供DNS解析功能和DHCP地址分配功能
-* 本系统可以用于机房内网、公司内网、家庭内网等类似内部网络环境
-* 系统基于DNSmasq，Web端基于Python语言和Tornado框架
+## Технический обмен QQ группы ##
 
-## 二、运行环境 ##
-* OS：RHEL 6.5 x64
-* Python：2.7.8
-* DnsMasq：2.72
-* Tornado：4.0.2
-* Jinja2：2.7.3
+** ** 459 457 262
 
-注意：以上是测试运行正常的环境，其他环境请自行测试
+> Пожалуйста, укажите при добавлении группы из ** Github **
 
-## 三、DNSmasq配置说明 ##
-* 常规安装（版本：2.48）
 
-`yum -y install dnsmasq`
+## Во-первых, описание прикладной задачи ##
+* Система может обеспечивать функцию разрешения DNS и функцию DHCP назначения адреса одновременно
+* Система может быть использована в машинном отделении сети, подобно внутренней сетевой среде внутри корпоративной сети, домашней сети и т.д.
+* На основе системы Dnsmasq, веб-терминала на базе языка Python и рамок Торнадо
 
-`chkconfig dnsmasq on`
+## Во-вторых, операционная среда ##
+* ОС: RHEL 6.5 x64
+* Python: 2.7.8
+* Dnsmasq: 2,72
+* Торнадо: 4.0.2
+* Jinja2: 2.7.3
 
-* 编辑安装（版本：2.72）
+Примечание: выше тест запустить нормальную окружающую среду, другие экологические испытания самостоятельно
 
-`wget http://www.thekelleys.org.uk/dnsmasq/dnsmasq-2.72.tar.gz`
+## Три, инструкции по конфигурации Dnsmasq ##
+* Общая установка (версия: 2.48)
 
-`tar zxf dnsmasq-2.72.tar.gz`
+`Yum -y установить dnsmasq`
 
-`cd dnsmasq-2.72`
+`Chkconfig Dnsmasq on`
 
-`vim Makefile`
+* Измените установку (Версия: 2.72)
 
-`PREFIX = /usr/local/dnsmasq`
+`Wget HTTP: // www.thekelleys.org.uk / Dnsmasq / Dnsmasq-2.72.tar.gz`
 
-`make && make install`
+`Деготь ZXF Dnsmasq-2.72.tar.gz`
 
-`cp dnsmasq.conf.example /etc/dnsmasq.conf`
+`Cd Dnsmasq-2.72`
 
-`ln -s /usr/local/dnsmasq/sbin/dnsmasq /usr/sbin/`
+`Вим Makefile`
 
-`dnsmasq --version`
+`PREFIX = / USR / местные / dnsmasq`
 
-* 主配文件：/etc/dnsmasq.conf
+`Make && сделать install`
 
-`resolv-file=/etc/dnsmasq.resolv.conf`
+`Cp dnsmasq.conf.example / и т.д. / dnsmasq.conf`
 
-`addn-hosts=/etc/dnsmasq.hosts`
+`Ln -s / USR / местные / Dnsmasq / SBIN / Dnsmasq / USR / SBIN /`
 
-`conf-dir=/etc/dnsmasq.d`
+`Dnsmasq --version`
 
-## 四、Web配置 ##
-* 安装Tornado
+* Основной файл особенность: /etc/dnsmasq.conf
 
-`easy_install tornado`
+`Резолв-файл = / и т.д. / dnsmasq.resolv.conf`
 
-* 安装jinja2
+`ADDN-хостов = / и т.д. / dnsmasq.hosts`
 
-`easy_install tornado`
+`Conf-реж = / и т.д. / dnsmasq.d`
 
-* 安装数据库驱动
+## Четыре, веб-конфигурации ##
+* Установить Торнадо
 
-`yum -y install MySQL-python`
+`Easy_install tornado`
 
-`easy_install torndb`
+* Установить Jinja2
 
-* 导入数据库文件
+`Easy_install tornado`
 
-`mysql> create database xk_dnsmasq;`
+* Установка драйверов баз данных
 
-`mysql> use xk_dnsmasq;`
+`Yum -y установить MySQL-python`
 
-`mysql> source xk_db_sql/xk_dnsmasq.sql;`
+`Easy_install torndb`
 
-* 配置Web
+* Импорт файла базы данных
 
-`cp xk_config/xk_setting.sample.py xk_config/xk_setting.py`
+`Mysql> создать xk_dnsmasq базы данных;`
 
-在文件xk_config/xk_setting.py设置MySQL的主机、端口、用户名、密码
+`Mysql> использовать xk_dnsmasq;`
 
-* 启动Web端
+`Mysql> источник xk_db_sql / xk_dnsmasq.sql;`
 
-`python run.py`
+* Настройка веб
 
-默认用户名/密码：admin/admin
+`Cp xk_config / xk_setting.sample.py xk_config / xk_setting.py`
 
-默认端口：9886
+xk_config File / xk_setting.py установить MySQL хост, порт, имя пользователя, пароль
 
-## 五、截图 ##
+* Запуск веб-терминала
 
-* 登录页面
+`Python run.py`
 
-![DnsMasqWeb Login](https://github.com/luxiaok/DNSmasqWeb/raw/master/xk_screenshot/xk_login.png)
+Имя пользователя по умолчанию / пароль: администратор / администратор
 
-* 控制中心
+По умолчанию порт: 9886
 
-![DnsMasqWeb Dashboard](https://github.com/luxiaok/DNSmasqWeb/raw/master/xk_screenshot/xk_dashboard.png)
+## Скриншот V. ##
 
-* 域名管理
+* Войти Страница
 
-![DnsMasqWeb Domain](https://github.com/luxiaok/DNSmasqWeb/raw/master/xk_screenshot/xk_domain.png)
+! [DnsMasqWeb Войти] (https://github.com/luxiaok/DNSmasqWeb/raw/master/xk_screenshot/xk_login.png)
 
-* DNS记录管理
+* Центр управления
 
-![DnsMasqWeb Record](https://github.com/luxiaok/DNSmasqWeb/raw/master/xk_screenshot/xk_record.png)
+! [DnsMasqWeb Dashboard] (https://github.com/luxiaok/DNSmasqWeb/raw/master/xk_screenshot/xk_dashboard.png)
 
-* DHCP管理
+* Управление доменами
 
-![DnsMasqWeb DHCP](https://github.com/luxiaok/DNSmasqWeb/raw/master/xk_screenshot/xk_dhcp.png)
+! [DnsMasqWeb домена] (https://github.com/luxiaok/DNSmasqWeb/raw/master/xk_screenshot/xk_domain.png)
+
+* Управление записями DNS
+
+! [DnsMasqWeb Record] (https://github.com/luxiaok/DNSmasqWeb/raw/master/xk_screenshot/xk_record.png)
+
+* Управление DHCP
+
+! [DnsMasqWeb DHCP] (https://github.com/luxiaok/DNSmasqWeb/raw/master/xk_screenshot/xk_dhcp.png)
