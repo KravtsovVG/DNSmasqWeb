@@ -37,7 +37,7 @@ class HttpApplication(tornado.web.Application):
         ping_db = lambda: self.db.query("select now()")
         #def print_test():
         #    print "Hello Test"
-        # 每3分钟执行一次数据库查询,防止mysql gone away,时间间隔要小于msyql的wait_timeout时长
+        # Every 3 minutes to implement a database query to prevent mysql gone away, the time interval is less than msyql wait_timeout duration
         tornado.ioloop.PeriodicCallback(ping_db,3 * 60 * 1000).start()
         #tornado.ioloop.PeriodicCallback(print_test,1 * 30 * 1000).start()
 
