@@ -24,13 +24,13 @@ DROP TABLE IF EXISTS `xk_dhcp_host`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `xk_dhcp_host` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `hostname` varchar(50) DEFAULT NULL COMMENT '主机名',
-  `mac` varchar(20) DEFAULT NULL COMMENT 'MAC地址',
-  `ip` varchar(15) DEFAULT NULL COMMENT 'IP地址',
-  `comment` varchar(30) DEFAULT NULL COMMENT '备注',
-  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `status` varchar(3) NOT NULL DEFAULT 'yes' COMMENT '规则状态',
-  `action` varchar(10) NOT NULL DEFAULT 'allow' COMMENT '规则动作',
+  `hostname` varchar(50) DEFAULT NULL COMMENT 'Hostname',
+  `mac` varchar(20) DEFAULT NULL COMMENT 'MAC adress',
+  `ip` varchar(15) DEFAULT NULL COMMENT 'IP adress',
+  `comment` varchar(30) DEFAULT NULL COMMENT 'comment',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'create time',
+  `status` varchar(3) NOT NULL DEFAULT 'yes' COMMENT 'Rule Status',
+  `action` varchar(10) NOT NULL DEFAULT 'allow' COMMENT 'Rule action',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -54,12 +54,12 @@ DROP TABLE IF EXISTS `xk_domain`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `xk_domain` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `domain` varchar(60) NOT NULL COMMENT '域名',
-  `file` varchar(200) NOT NULL COMMENT '配置文件',
-  `file_md5` varchar(64) NOT NULL COMMENT 'MD5值',
-  `create_time` datetime NOT NULL COMMENT '创建时间',
-  `up_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  `comment` varchar(200) NOT NULL COMMENT '备注',
+  `domain` varchar(60) NOT NULL COMMENT 'domain name',
+  `file` varchar(200) NOT NULL COMMENT 'The configuration file',
+  `file_md5` varchar(64) NOT NULL COMMENT 'MD5 value',
+  `create_time` datetime NOT NULL COMMENT 'Created time',
+  `up_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Update time',
+  `comment` varchar(200) NOT NULL COMMENT 'Remarks',
   `status` varchar(3) NOT NULL DEFAULT 'yes' COMMENT '状态',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
