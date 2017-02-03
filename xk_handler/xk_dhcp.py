@@ -30,17 +30,17 @@ class DhcpPoolHandler(BaseHandler):
         #    values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)''',name,range_start,range_end,netmask,router,dns1,dns2,domain,lease,comment)
         self.db.execute('''
             insert into xk_options (name,value,comment) values
-            ('xk_dhcp_status',%s,'DHCP开关'),
-            ('xk_dhcp_pool_start',%s,'DHCP地址池开始地址'),
-            ('xk_dhcp_pool_stop',%s,'DHCP地址池结束地址'),
-            ('xk_dhcp_pool_netmask',%s,'DHCP地址池子网掩码'),
-            ('xk_dhcp_pool_lease',%s,'DHCP租约'),
-            ('xk_dhcp_pool_gw',%s,'DHCP默认网关'),
-            ('xk_dhcp_pool_dns1',%s,'DHCP主DNS服务器'),
-            ('xk_dhcp_pool_dns2',%s,'DHCP辅助DNS服务器'),
-            ('xk_dhcp_pool_domain',%s,'DHCP缺省域名'),
-            ('xk_dhcp_pool_ntp',%s,'DHCP时间服务器'),
-            ('xk_dhcp_pool_comment',%s,'DHCP地址池备注')
+            ('xk_dhcp_status',%s,'DHCP switch'),
+            ('xk_dhcp_pool_start',%s,'DHCP pool start address'),
+            ('xk_dhcp_pool_stop',%s,'DHCP pool end address'),
+            ('xk_dhcp_pool_netmask',%s,'DHCP pool mask'),
+            ('xk_dhcp_pool_lease',%s,'DHCP lease'),
+            ('xk_dhcp_pool_gw',%s,'DHCP default gateway'),
+            ('xk_dhcp_pool_dns1',%s,'DHCP primary DNS server'),
+            ('xk_dhcp_pool_dns2',%s,'DHCP secondary DNS server'),
+            ('xk_dhcp_pool_domain',%s,'DHCP default domain name'),
+            ('xk_dhcp_pool_ntp',%s,'DHCP Time server'),
+            ('xk_dhcp_pool_comment',%s,'DHCP pool comments')
             ON DUPLICATE KEY UPDATE name=values(name),value=values(value),comment=values(comment)
          ''',status,range_start,range_end,netmask,lease,router,dns1,dns2,domain,ntp,comment)
         self.write("1")
@@ -69,10 +69,10 @@ class DhcpHostHandler(BaseHandler):
         check_mac = self.db.query(sql_mac)
         check_ip = self.db.query(sql_ip)
         if check_mac:
-            self.write("2")  # MAC地址冲突
+            self.write("2")  # MAC address conflict
             return
         if check_ip:
-            self.write("3")  # IP地址冲突
+            self.write("3")  # IP address conflict
             return
         if fun == "add":
             self.db.execute(" insert into xk_dhcp_host (hostname,mac,ip,action,comment) values (%s,%s,%s,%s,%s) ",hostname,mac.lower(),ip,action,comment)
